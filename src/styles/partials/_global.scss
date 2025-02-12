@@ -11,5 +11,10 @@
 body {
     font-family: $font-family-primary;
     background-color: $pistachio;
+    // background-color: $sage;
     color: $black;
+}
+
+h1, h2 {
+    font-family: $font-family-secondary;
 }
