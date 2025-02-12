@@ -5,9 +5,18 @@ import Footer from './components/Footer/Footer';
 
 function App() {
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
+  }
+
   return (
     <>
-      <Header />
+      <Header onToggleFilters={toggleFilter} CheckIsFilterOpen={isFilterOpen} />
+      <main>
+        
+      </main>
       <Footer />
     </>
   )
