@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import FilterDrawer from "./components/FilterDrawer/FilterDrawer";
 
 import tagsArray from "../src/data/tags.json";
+import OurMission from "./components/OurMission/OurMission";
 
 function App() {
   // useState for Filters button
@@ -25,6 +26,7 @@ function App() {
         handleToggleFilters={toggleFilter}
         CheckIsFilterOpen={isFilterOpen}
       />
+
       {isFilterOpen && (
         <FilterDrawer
           tags={tagsArray}
@@ -32,7 +34,9 @@ function App() {
           checkActiveTag={activeTag}
         />
       )}
-      <
+      
+      <OurMission />
+
       <Footer />
     </>
   );
