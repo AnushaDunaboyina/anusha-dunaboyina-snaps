@@ -27,7 +27,7 @@ function App() {
     <>
       <Header
         handleToggleFilters={toggleFilter}
-        CheckIsFilterOpen={isFilterOpen}
+        checkIsFilterOpen={isFilterOpen}
       />
 
       {isFilterOpen && (
@@ -37,7 +37,7 @@ function App() {
           checkActiveTag={activeTag}
         />
       )}
-      
+
       <OurMission />
 
       <PhotoCards />
