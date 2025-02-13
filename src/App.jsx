@@ -1,11 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import FilterDrawer from "./components/FilterDrawer/FilterDrawer";
+import OurMission from "./components/OurMission/OurMission";
+import PhotoCards from "./components/PhotoCards/PhotoCards";
 
 import tagsArray from "../src/data/tags.json";
-import OurMission from "./components/OurMission/OurMission";
+import photoCardsArray from "../src/data/photos.json";
 
 function App() {
   // useState for Filters button
@@ -36,6 +39,8 @@ function App() {
       )}
       
       <OurMission />
+
+      <PhotoCards />
 
       <Footer />
     </>
