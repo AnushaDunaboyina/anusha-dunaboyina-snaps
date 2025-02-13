@@ -51,10 +51,6 @@ body {
   color: #0C1E1A;
 }
 
-h1, h2, h3 {
-  font-family: "Newsreader", serif, "Georgia", serif;
-}
-
 .header {
   padding: 24px 16px;
   display: flex;
@@ -85,11 +81,11 @@ h1, h2, h3 {
   height: 16px;
 }
 
-.filter-button:hover {
+.filter-button:hover, .filter-button--active {
   background-color: #1E6655;
   color: #FFFFFF;
 }
-.filter-button:hover .filter-icon {
+.filter-button:hover .filter-icon, .filter-button--active .filter-icon {
   filter: brightness(0) saturate(100%) invert(100%);
 }
 

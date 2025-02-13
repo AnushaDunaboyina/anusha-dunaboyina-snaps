@@ -15,6 +15,7 @@
   .footer__title {
     color: $black;
     @include font-wordmark-tab-desktop;
+    font-family: $font-family-secondary;
   }
 
   .footer__link {
