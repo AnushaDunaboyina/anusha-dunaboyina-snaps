@@ -8,7 +8,7 @@ import OurMission from "./components/OurMission/OurMission";
 import PhotoCards from "./components/PhotoCards/PhotoCards";
 
 import tagsArray from "../src/data/tags.json";
-import photoCardsArray from "../src/data/photos.json";
+import photos from "../src/data/photos.json";
 
 function App() {
   // useState for Filters button
@@ -40,7 +40,7 @@ function App() {
 
       <OurMission />
 
-      <PhotoCards />
+      <PhotoCards photosData={photos} />
 
       <Footer />
     </>
