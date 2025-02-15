@@ -1,7 +1,5 @@
 import "./PhotoCards.scss";
 
-// import photos from "../../data/photos.json";
-
 function PhotoCards({ photosData }) {
   return (
     <section>

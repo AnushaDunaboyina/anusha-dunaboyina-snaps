@@ -1,26 +1,19 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .header {
-    padding: 24px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    &__title {
-    @include font-wordmark-tab-desktop;
+  &__title {
+    @include font-wordmark-mobile;
     font-family: $font-family-secondary;
-    }
+  }
 
-    &__link {
-        text-decoration: none;
-        color: inherit;
-    }
+  &__link {
+    text-decoration: none;
+    color: $black;
+  }
 }
-
-
-
-
-
-
-

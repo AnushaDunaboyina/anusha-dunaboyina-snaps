@@ -13,16 +13,24 @@ import photos from "../src/data/photos.json";
 function App() {
   // useState for Filters button
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  // Toggle the filter drawer and reset activeTag when closing
   const toggleFilter = () => {
+    if (isFilterOpen) {
+      setActiveTag(""); // Reset activeTag when closing the filters
+    }
     setIsFilterOpen(!isFilterOpen);
   };
 
   //  useState for Tags button
   const [activeTag, setActiveTag] = useState("");
+  
+  // Toggle the selected Tag
   const toggleTag = (tag) => {
     setActiveTag((previousTag) => (previousTag === tag ? "" : tag));
   };
 
+  // Filter photos based on the active tag
   const filteredPhotos = activeTag
     ? photos.filter((photo) => photo.tags.includes(activeTag))
     : photos;

@@ -1,35 +1,40 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .filters__container {
-    padding: 24px 16px;
-    background-color: $sage;
+  padding: 24px 16px;
+  background-color: $sage;
 
-    .filters__title {
-        font-size: 24px;
-        padding-bottom: 24px;
+  .filters__title {
+    padding-bottom: 24px;
+    @include font-heading-mobile;
+  }
+
+  .filters__tags-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .filters__tag {
+      background-color: transparent;
+      background-color: $white;
+      border: none;
+      border: 1px solid $forest-green;
+      padding: 6px 8px;
+      border-radius: 12px;
+      color: $forest-green;
+      cursor: pointer;
+      @include font-body-mobile;
+
+      &:hover {
+        background-color: $forest-green;
+        color: $white;
+      }
+
+      &.filters__tag--active {
+        background-color: $forest-green;
+        color: $white;
+      }
     }
-
-    .filters__tags-section {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        .filters__tag {
-            background-color: transparent;
-            background-color: $white;
-            border: none;
-            border: 2px solid $forest-green;
-            padding: 8px;
-            border-radius: 12px;
-            color: $forest-green;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .filters__tag--active {
-            background-color: $forest-green;
-            color: $white;
-        }
-    }    
+  }
 }

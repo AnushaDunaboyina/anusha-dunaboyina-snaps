@@ -24,6 +24,44 @@
     }
 }
 
+// Font Mixins for Mobile
+
+@mixin font-wordmark-mobile {
+    font-size: 2rem; // 32px
+    font-weight: 400; // regular
+}
+
+@mixin font-title-mobile {
+    font-size: 1.625rem; // 26px
+    font-weight: 300; //light
+}
+
+@mixin font-heading-mobile {
+    font-size: 1.125rem; // 18px
+    font-weight: 500; // medium
+}
+
+@mixin font-body-mobile {
+    font-size: 0.75rem; // 12px
+    font-weight: 500; //medium
+}
+
+@mixin font-body-copy-mobile {
+    font-size: 0.75rem; // 12px
+    font-weight: 300; // light
+}
+
+@mixin font-small-body-mobile {
+    font-size: 0.625rem; // 10px
+    font-weight: 500; // medium
+}
+
+@mixin font-label-mobile {
+    font-size: 0.75rem; // 12px
+    font-weight: 500; // medium
+}
+
+
 //  Font Mixins for Tablet - Desktop
 
 @mixin font-wordmark-tab-desktop {
@@ -61,39 +99,3 @@
     font-weight: 500; // medium
 }
 
-// Font Mixins for Mobile
-
-@mixin font-wordmark-mobile {
-    font-size: 2rem; // 32px
-    font-weight: 400; // regular
-}
-
-@mixin font-title-mobile {
-    font-size: 1.625rem; // 26px
-    font-weight: 300; //light
-}
-
-@mixin font-heading-mobile {
-    font-size: 1.125rem; // 18px
-    font-weight: 500; // medium
-}
-
-@mixin font-body-mobile {
-    font-size: 0.75rem; // 12px
-    font-weight: 500; //medium
-}
-
-@mixin font-body-copy-mobile {
-    font-size: 0.75rem; // 12px
-    font-weight: 300; // light
-}
-
-@mixin font-small-body-mobile {
-    font-size: 0.625rem; // 10px
-    font-weight: 500; // medium
-}
-
-@mixin font-label-mobile {
-    font-size: 0.75rem; // 12px
-    font-weight: 500; // medium
-}

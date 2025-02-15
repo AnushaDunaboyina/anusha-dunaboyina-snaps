@@ -5,15 +5,13 @@
     padding: 24px 16px;
 
     &__title {
-        font-size: 14px;
-        font-weight: 600;
+        @include font-body-mobile;
     }
 
     &__paragraph {
-        padding: 24px 0;
+        padding-top: 24px;
         font-family: $font-family-secondary;
-        font-size: 30px;
-        font-weight: lighter;
+        @include font-title-mobile;
         line-height: 38px;
 
         &--italic {
