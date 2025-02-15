@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -23,6 +23,10 @@ function App() {
     setActiveTag((previousTag) => (previousTag === tag ? "" : tag));
   };
 
+  const filteredPhotos = activeTag
+    ? photos.filter((photo) => photo.tags.includes(activeTag))
+    : photos;
+
   return (
     <>
       <Header
@@ -40,7 +44,7 @@ function App() {
 
       <OurMission />
 
-      <PhotoCards photosData={photos} />
+      <PhotoCards photosData={filteredPhotos} />
 
       <Footer />
     </>
