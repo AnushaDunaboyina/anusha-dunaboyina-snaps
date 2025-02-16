@@ -14,6 +14,9 @@ function App() {
   // useState for Filters button
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const toggleFilter = () => {
+    if (isFilterOpen) {
+      setActiveTag(""); // Reset activeTag when closing the filters
+    }
     setIsFilterOpen(!isFilterOpen);
   };
 

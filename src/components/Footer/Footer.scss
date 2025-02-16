@@ -2,11 +2,11 @@
 @use "../../styles/partials/variables" as *;
 
 .footer {
-  padding: 24px 16px;
+  padding: 1.5rem 1rem;
   margin: 0;
 
   @include tablet-desktop {
-    padding: 32px 24px;
+    padding: 2rem 1.5rem;
   }
 
   .footer__title,
@@ -24,7 +24,7 @@
 
   .footer__links {
     @include tablet-desktop {
-      padding: 40px 0 240px 0;
+      padding: 2.5rem 0 15rem 0;
       display: flex;
       justify-content: space-between;
 
@@ -61,8 +61,8 @@
   .footer__link-lists {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding: 32px 0;
+    gap: 1.5rem;
+    padding: 2rem 0;
 
     @include tablet {
       flex: 1;
@@ -75,36 +75,36 @@
       display: flex;
       flex-direction: row;
       padding: 0;
-      gap: 96px;
+      gap: 6rem;
     }
 
     .footer__link-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0.5rem;
 
       @include tablet-desktop {
-        gap: 16px;
+        gap: 1rem;
       }
     }
   }
 
   .footer__icons {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
 
     @include tablet-desktop {
-      gap: 24px;
+      gap: 1.5rem;
     }
 
     @include desktop {
-      padding-top: 40px;
-      margin-left: 96px;
+      padding-top: 2.5rem;
+      margin-left: 6rem;
     }
 
     .footer-icon {
-      height: 24px;
-      width: 24px;
+      height: 1.5rem;
+      width: 1.5rem;
       cursor: pointer;
       transition: transform 0.1s ease;
 
@@ -116,13 +116,13 @@
 
   .footer__bottom {
     color: $sea-green;
-    padding-top: 24px;
+    padding-top: 1.5rem;
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     @include font-body-mobile;
 
     @include tablet-desktop {
-      gap: 24px;
+      gap: 1.5rem;
       @include font-label-tab-desktop;
     }
 

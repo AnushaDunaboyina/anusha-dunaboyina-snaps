@@ -1,7 +1,6 @@
 import "./FilterDrawer.scss";
 
 function FilterDrawer({ tags, handleToggleTag, checkActiveTag }) {
-  // console.log("FilterDrawer is open");
   return (
     <div className="filters__container">
       <h3 className="filters__title">Filters</h3>

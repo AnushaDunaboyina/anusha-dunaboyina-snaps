@@ -2,52 +2,52 @@
 @use "../../styles/partials/variables" as *;
 
 .filters__container {
-  padding: 24px 16px;
+  padding: 1.5rem 1rem;
   background-color: $sage;
 
   @include tablet {
-    padding: 32px 24px 96px 24px;
+    padding: 2rem 1.5rem 6rem 1.5rem;
   }
 
   @include desktop {
     position: absolute;
     height: 100%;
-    padding: 48px 40px 0 40px;
+    padding: 3rem 2.5rem 0 2.5rem;
   }
 
   .filters__title {
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
     @include font-heading-mobile;
 
     @include tablet-desktop {
-      padding-bottom: 32px;
+      padding-bottom: 2rem;
       @include font-heading-tab-desktop;
     }
 
     @include desktop {
-      padding-bottom: 48px;
+      padding-bottom: 3rem;
     }
   }
 
   .filters__tags-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0.5rem;
 
     .filters__tag {
       background-color: transparent;
       background-color: $white;
       border: none;
-      border: 1px solid $forest-green;
-      padding: 6px 8px;
-      border-radius: 6px;
+      border: 0.063rem solid $forest-green;
+      padding: 0.375rem 0.5rem;
+      border-radius: 0.375rem;
       color: $forest-green;
       cursor: pointer;
       @include font-body-mobile;
 
       @include tablet-desktop {
-        padding: 8px 12px;
-        border-radius: 12px;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.75rem;
         @include font-label-tab-desktop;
       }
 
