@@ -1,21 +1,39 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .Mission-section {
-    padding: 24px 16px;
+  padding: 24px 16px;
 
-    &__title {
-        @include font-body-mobile;
+  @include tablet-desktop {
+    padding: 32px 24px;
+  }
+
+  &__title {
+    @include font-body-mobile;
+
+    @include tablet-desktop {
+      @include font-body-tab-desktop;
+    }
+  }
+
+  &__paragraph {
+    padding-top: 24px;
+    font-family: $font-family-secondary;
+    @include font-title-mobile;
+    line-height: 38px;
+
+    @include tablet-desktop {
+      @include font-title-tab-desktop;
+      padding-top: 32px;
+      line-height: 66px;
     }
 
-    &__paragraph {
-        padding-top: 24px;
-        font-family: $font-family-secondary;
-        @include font-title-mobile;
-        line-height: 38px;
-
-        &--italic {
-            font-style: italic;
-        }
+    @include desktop {
+      width: 60%;
     }
+
+    &--italic {
+      font-style: italic;
+    }
+  }
 }

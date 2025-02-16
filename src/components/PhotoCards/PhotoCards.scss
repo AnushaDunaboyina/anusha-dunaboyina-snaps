@@ -8,6 +8,11 @@
   gap: 16px;
   padding: 24px 16px;
 
+  @include tablet-desktop {
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
   .photo-card {
     flex: 1;
     background-color: $sage;
@@ -17,6 +22,15 @@
     flex: 1 1 300px;
     display: flex;
     flex-direction: column;
+
+    @include tablet-desktop {
+      max-width: 360px;
+      border-radius: 12px;
+
+      @include desktop {
+        max-width: 400px;
+      }
+    }
 
     &__image-container {
       flex: 1;
@@ -28,6 +42,14 @@
         height: 180px;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
+
+        @include tablet {
+          height: 220px;
+        }
+
+        @include desktop {
+          height: 260px;
+        }
       }
 
       .photo-card__photographer {
@@ -39,6 +61,11 @@
         border-top-left-radius: 8px;
         border-bottom: 1px solid $sea-green;
         @include font-small-body-mobile;
+
+        @include tablet-desktop {
+          @include font-small-body-tab-desktop;
+          padding: 8px 12px;
+        }
       }
     }
 
@@ -47,21 +74,28 @@
       display: flex;
       gap: 8px;
 
+      @include tablet-desktop {
+        padding: 16px;
+        gap: 8px;
+      }
+
       .photo-card__tag {
         border: none;
         background-color: transparent;
         background-color: $white;
         border: 1px solid $sea-green;
         padding: 6px 8px;
-        border-radius: 12px;
+        border-radius: 6px;
         color: $black;
         cursor: pointer;
-        // @include font-body-copy-mobile;
         @include font-small-body-mobile;
 
+        @include tablet-desktop {
+          @include font-small-body-tab-desktop;
+          padding: 8px 12px;
+          border-radius: 12px;
+        }
       }
     }
   }
 }
-
-
