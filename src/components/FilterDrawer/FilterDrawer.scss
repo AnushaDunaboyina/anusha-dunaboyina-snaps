@@ -9,6 +9,12 @@
     padding: 32px 24px 96px 24px;
   }
 
+  @include desktop {
+    position: absolute;
+    height: 100%;
+    padding: 48px 40px 100% 40px;
+  }
+
   .filters__title {
     padding-bottom: 24px;
     @include font-heading-mobile;
@@ -16,6 +22,10 @@
     @include tablet-desktop {
       padding-bottom: 32px;
       @include font-heading-tab-desktop;
+    }
+
+    @include desktop {
+      padding-bottom: 48px;
     }
   }
 

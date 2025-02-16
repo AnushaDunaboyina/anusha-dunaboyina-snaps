@@ -1,5 +1,28 @@
-@use "./styles/partials/font-face";
-@use "./styles/partials/global";
+@use "../src/styles/partials/font-face";
+@use "../src/styles/partials/global";
+@use "../src/styles/partials/mixins" as *;
+@use "../src/styles/partials/variables" as *;
 
-@use "./components/Header/Header.scss" as *;
-@use "./components/Footer/Footer.scss" as *;
+.main-content {
+    @include desktop {
+        display: flex;  
+        flex-direction: row-reverse;
+        position: relative;
+    }    
+}
+
+.filter-open {
+
+    @include desktop {
+        .main-left {
+            width: 67%;
+        }
+        
+        .main-right {
+            width: 33%;
+        }
+    }  
+}
+
+
+

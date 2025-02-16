@@ -101,62 +101,6 @@ function Footer() {
               fill="#1E6655"
             />
           </svg>
-
-          {/* <svg
-            className="footer-icon"
-            width="24px"
-            height="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <image
-              className="footer-icon"
-              height="24px"
-              width="24px"
-              href={facebookIcon}
-            />
-          </svg> */}
-
-          {/* <svg
-            className="footer-icon"
-            width="24px"
-            height="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <image
-              className="footer-icon"
-              height="24px"
-              width="24px"
-              href={twitterIcon}
-            />
-          </svg>
-
-          <svg
-            className="footer-icon"
-            width="24px"
-            height="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <image
-              className="footer-icon"
-              height="24px"
-              width="24px"
-              href={instagramIcon}
-            />
-          </svg>
-
-          <svg
-            className="footer-icon"
-            width="24px"
-            height="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <image
-              className="footer-icon"
-              height="24px"
-              width="24px"
-              href={pinterestIcon}
-            />
-          </svg> */}
         </div>
       </section>
 
