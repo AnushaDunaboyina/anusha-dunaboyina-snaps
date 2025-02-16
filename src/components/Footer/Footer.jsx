@@ -12,7 +12,7 @@ function Footer() {
         <section className="footer__links">
           <div className="footer__title-block">
             <h3>
-              <a className="footer__title" href="">
+              <a className="footer__title" href="/">
                 Snaps
               </a>
             </h3>
@@ -20,25 +20,25 @@ function Footer() {
 
           <div className="footer__link-lists">
             <div className="footer__link-list">
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/photographers" target="blank">
                 For Photographers
               </a>
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/hire-management" target="blank">
                 Hire talent
               </a>
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/inspiration" target="blank">
                 Inspiration
               </a>
             </div>
 
             <div className="footer__link-list">
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/about" target="blank">
                 About
               </a>
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/careers" target="blank">
                 Careers
               </a>
-              <a className="footer__link" href="">
+              <a className="footer__link" href="/support" target="blank">
                 Support
               </a>
             </div>

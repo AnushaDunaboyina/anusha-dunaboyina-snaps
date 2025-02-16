@@ -34,21 +34,8 @@ function App() {
         checkIsFilterOpen={isFilterOpen}
       />
 
-      {/* {isFilterOpen && (
-        <FilterDrawer
-          tags={tagsArray}
-          handleToggleTag={toggleTag}
-          checkActiveTag={activeTag}
-        />
-      )}
-
-      <OurMission />
-
-      <PhotoCards photosData={filteredPhotos} /> */}
-
       <div className={`main-content ${isFilterOpen ? "filter-open" : ""}`}>
-
-      {isFilterOpen && (
+        {isFilterOpen && (
           <div className="main-right">
             <FilterDrawer
               tags={tagsArray}
@@ -62,8 +49,6 @@ function App() {
 
           <PhotoCards photosData={filteredPhotos} />
         </div>
-
-       
       </div>
 
       <Footer />

@@ -4,25 +4,21 @@
 @use "../src/styles/partials/variables" as *;
 
 .main-content {
-    @include desktop {
-        display: flex;  
-        flex-direction: row-reverse;
-        position: relative;
-    }    
+  @include desktop {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+  }
 }
 
 .filter-open {
+  @include desktop {
+    .main-left {
+      width: 67%;
+    }
 
-    @include desktop {
-        .main-left {
-            width: 67%;
-        }
-        
-        .main-right {
-            width: 33%;
-        }
-    }  
+    .main-right {
+      width: 33%;
+    }
+  }
 }
-
-
-
