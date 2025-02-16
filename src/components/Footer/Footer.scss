@@ -5,21 +5,57 @@
   padding: 24px 16px;
   margin: 0;
 
+  @include tablet-desktop {
+    padding: 32px 24px;
+  }
+
   .footer__title,
   .footer__link,
   .footer__bottom-link {
     text-decoration: none;
   }
 
+  .footer__content {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .footer__links {
+    @include tablet-desktop {
+      padding: 40px 0 240px 0;
+      display: flex;
+      justify-content: space-between;
+
+      @include desktop {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .footer__title-block {
+        flex: 1;
+      }
+    }
+  }
+
   .footer__title {
     color: $black;
     @include font-wordmark-mobile;
     font-family: $font-family-secondary;
+
+    @include tablet-desktop {
+      @include font-wordmark-tab-desktop;
+    }
   }
 
   .footer__link {
     color: $black;
     @include font-body-mobile;
+
+    @include tablet-desktop {
+      @include font-body-tab-desktop;
+    }
   }
 
   .footer__link-lists {
@@ -28,17 +64,43 @@
     gap: 24px;
     padding: 32px 0;
 
+    @include tablet {
+      flex: 1;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      gap: 96px;
+    }
+
     .footer__link-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
+
+      @include tablet-desktop {
+        gap: 16px;
+      }
     }
   }
 
   .footer__icons {
     display: flex;
-
     gap: 16px;
+
+    @include tablet-desktop {
+      gap: 24px;
+    }
+
+    @include desktop {
+      padding-top: 40px;
+      margin-left: 96px;
+    }
 
     .footer-icon {
       height: 24px;
@@ -58,6 +120,15 @@
     display: flex;
     gap: 16px;
     @include font-body-mobile;
+
+    @include tablet-desktop {
+      gap: 24px;
+      @include font-label-tab-desktop;
+    }
+
+    @include desktop {
+      @include font-body-tab-desktop;
+    }
 
     .footer__bottom-link {
       color: $sea-green;
