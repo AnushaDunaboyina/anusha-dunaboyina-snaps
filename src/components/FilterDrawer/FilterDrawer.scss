@@ -5,9 +5,18 @@
   padding: 24px 16px;
   background-color: $sage;
 
+  @include tablet {
+    padding: 32px 24px 96px 24px;
+  }
+
   .filters__title {
     padding-bottom: 24px;
     @include font-heading-mobile;
+
+    @include tablet-desktop {
+      padding-bottom: 32px;
+      @include font-heading-tab-desktop;
+    }
   }
 
   .filters__tags-section {
@@ -21,10 +30,16 @@
       border: none;
       border: 1px solid $forest-green;
       padding: 6px 8px;
-      border-radius: 12px;
+      border-radius: 6px;
       color: $forest-green;
       cursor: pointer;
       @include font-body-mobile;
+
+      @include tablet-desktop {
+        padding: 8px 12px;
+        border-radius: 12px;
+        @include font-label-tab-desktop;
+      }
 
       &:hover {
         background-color: $forest-green;
