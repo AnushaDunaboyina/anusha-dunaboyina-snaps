@@ -51,6 +51,12 @@
 
   .footer__link {
     color: $black;
+
+    max-width: max-content;
+    &:hover {
+      color: $forest-green;
+    }
+
     @include font-body-mobile;
 
     @include tablet-desktop {
@@ -132,6 +138,10 @@
 
     .footer__bottom-link {
       color: $sea-green;
+
+      &:hover {
+        color: $forest-green;
+      }
     }
   }
 }
