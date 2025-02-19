@@ -1,16 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.scss";
 
-import Header from "./components/Header/Header";
+import Header from "../src/components/Header/Header";
+import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
-import FilterDrawer from "./components/FilterDrawer/FilterDrawer";
-import OurMission from "./components/OurMission/OurMission";
-import PhotoCards from "./components/PhotoCards/PhotoCards";
 
-import tagsArray from "../src/data/tags.json";
-import photos from "../src/data/photos.json";
-
-function App() {
+const App = () => {
   // useState for Filters button
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const toggleFilter = () => {
@@ -22,41 +18,29 @@ function App() {
 
   //  useState for Tags button
   const [activeTag, setActiveTag] = useState("");
-  const toggleTag = (tag) => {
-    setActiveTag((previousTag) => (previousTag === tag ? "" : tag));
-  };
-
-  const filteredPhotos = activeTag
-    ? photos.filter((photo) => photo.tags.includes(activeTag))
-    : photos;
 
   return (
-    <>
+    <BrowserRouter>
       <Header
         handleToggleFilters={toggleFilter}
         checkIsFilterOpen={isFilterOpen}
       />
-
-      <div className={`main-content ${isFilterOpen ? "filter-open" : ""}`}>
-        {isFilterOpen && (
-          <div className="main-right">
-            <FilterDrawer
-              tags={tagsArray}
-              handleToggleTag={toggleTag}
-              checkActiveTag={activeTag}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              isFilterOpen={isFilterOpen}
+              activeTag={activeTag}
+              setActiveTag={setActiveTag}
             />
-          </div>
-        )}
-        <div className="main-left">
-          <OurMission />
-
-          <PhotoCards photosData={filteredPhotos} />
-        </div>
-      </div>
-
+          }
+        />
+        {/* <Route path="/pageDetails" element={<PageDetails />} */}
+      </Routes>
       <Footer />
-    </>
-  ); 
-}
+    </BrowserRouter>
+  );
+};
 
 export default App;
