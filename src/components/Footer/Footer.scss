@@ -42,7 +42,6 @@
   .footer__title {
     color: $black;
     @include font-wordmark-mobile;
-    font-family: $font-family-secondary;
 
     @include tablet-desktop {
       @include font-wordmark-tab-desktop;
@@ -136,7 +135,7 @@
       @include font-body-tab-desktop;
     }
 
-    .footer__bottom-link {
+    .footer__link--bottom {
       color: $sea-green;
 
       &:hover {

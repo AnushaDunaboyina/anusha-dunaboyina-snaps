@@ -1,17 +1,17 @@
 import "./FilterDrawer.scss";
 
-function FilterDrawer({ tags, handleToggleTag, checkActiveTag }) {
+function FilterDrawer({ tags, onToggleTag, activeTag }) {
   return (
-    <div className="filters__container">
+    <div className="filters">
       <h3 className="filters__title">Filters</h3>
-      <div className="filters__tags-section">
+      <div className="filters__tags">
         {tags.map((tag) => (
           <button
             key={tag}
             className={`filters__tag ${
-              checkActiveTag === tag ? "filters__tag--active" : ""
+              activeTag === tag ? "filters__tag--active" : ""
             }`}
-            onClick={() => handleToggleTag(tag)}
+            onClick={() => onToggleTag(tag)}
           >
             {tag}
           </button>

@@ -44,8 +44,8 @@ function Home({ isFilterOpen, activeTag, setActiveTag }) {
           <div className="main-right">
             <FilterDrawer
               tags={tags}
-              handleToggleTag={toggleTag}
-              checkActiveTag={activeTag}
+              onToggleTag={toggleTag}
+              activeTag={activeTag}
             />
           </div>
         )}

@@ -22,8 +22,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header
-        handleToggleFilters={toggleFilter}
-        checkIsFilterOpen={isFilterOpen}
+        onToggleFilters={toggleFilter}
+        isFilterOpen={isFilterOpen}
       />
       <Routes>
         <Route

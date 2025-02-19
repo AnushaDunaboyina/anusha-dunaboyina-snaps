@@ -13,7 +13,6 @@
 
   &__title {
     @include font-wordmark-mobile;
-    font-family: $font-family-secondary;
 
     @include tablet-desktop {
       @include font-wordmark-tab-desktop;

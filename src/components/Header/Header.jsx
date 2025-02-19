@@ -2,7 +2,7 @@ import "./header.scss";
 import Button from "../Button/Button";
 import filterIcon from "../../assets/images/Filter.svg";
 
-function Header({ handleToggleFilters, checkIsFilterOpen }) {
+function Header({ onToggleFilters, isFilterOpen }) {
   return (
     <header className="header">
       <h1 className="header__title">
@@ -12,8 +12,8 @@ function Header({ handleToggleFilters, checkIsFilterOpen }) {
       </h1>
 
       <Button
-        onClick={handleToggleFilters}
-        isActive={checkIsFilterOpen}
+        onClick={onToggleFilters}
+        isActive={isFilterOpen}
         aria-label="Toggle filters"
       >
         Filters

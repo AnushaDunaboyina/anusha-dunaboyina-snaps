@@ -6,11 +6,11 @@ function Footer() {
       <section className="footer__content">
         <section className="footer__links">
           <div className="footer__title-block">
-            <h3>
+            <h4>
               <a className="footer__title" href="/" aria-label="Snaps Homepage">
                 Snaps
               </a>
-            </h3>
+            </h4>
           </div>
 
           <div className="footer__link-lists">
@@ -160,7 +160,7 @@ function Footer() {
       <div className="footer__bottom">
         <p className="footer__copyright">&copy; 2024 Snaps</p>
         <a
-          className="footer__bottom-link"
+          className="footer__link--bottom"
           href="/terms"
           target="blank"
           aria-label="Terms and Conditions"
@@ -168,7 +168,7 @@ function Footer() {
           Terms
         </a>
         <a
-          className="footer__bottom-link"
+          className="footer__link--bottom"
           href="/privacy"
           target="blank"
           aria-label="Pivacy Policy"
@@ -176,7 +176,7 @@ function Footer() {
           Privacy
         </a>
         <a
-          className="footer__bottom-link"
+          className="footer__link--bottom"
           href="/cookies"
           target="blank"
           aria-label="Cookie Policy"
