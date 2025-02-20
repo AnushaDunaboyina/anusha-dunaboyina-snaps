@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { useState } from "react";
 import "./App.scss";
 
@@ -7,8 +7,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import PhotoDetails from "./pages/PhotoDetails/PhotoDetails";
 
-
 const App = () => {
+
   // useState for Filters button
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [photos, setPhotos] = useState([]);
@@ -47,3 +47,12 @@ const App = () => {
 };
 
 export default App;
+
+const Layout = ({ isFilterOpen, onToggleFilters }) => {
+  return (
+    <>
+      <Header isFilterOpen={isFilterOpen} onToggleFilters={onToggleFilters} />
+      <Outlet />
+    </>
+  );
+};
