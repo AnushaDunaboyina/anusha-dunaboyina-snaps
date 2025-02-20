@@ -8,9 +8,9 @@ import PhotoCards from "../../components/PhotoCards/PhotoCards";
 const API_KEY = "71b01ef3-c48c-463a-9ddb-4f2e5372cb75";
 const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
 
-function Home({ isFilterOpen, activeTag, setActiveTag }) {
+function Home({ isFilterOpen, activeTag, setActiveTag, photos, setPhotos }) {
   const [tags, setTags] = useState([]);
-  const [photos, setPhotos] = useState([]);
+  // const [photos, setPhotos] = useState([]);
 
   // Fetch tags and Photos from the API
   useEffect(() => {

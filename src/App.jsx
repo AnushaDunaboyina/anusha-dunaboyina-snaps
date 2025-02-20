@@ -3,12 +3,16 @@ import { useState } from "react";
 import "./App.scss";
 
 import Header from "../src/components/Header/Header";
-import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
+import PhotoDetails from "./pages/PhotoDetails/PhotoDetails";
+
 
 const App = () => {
   // useState for Filters button
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [photos, setPhotos] = useState([]);
+
   const toggleFilter = () => {
     if (isFilterOpen) {
       setActiveTag(""); // Reset activeTag when closing the filters
@@ -21,10 +25,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header
-        onToggleFilters={toggleFilter}
-        isFilterOpen={isFilterOpen}
-      />
+      <Header onToggleFilters={toggleFilter} isFilterOpen={isFilterOpen} />
       <Routes>
         <Route
           path="/"
@@ -33,10 +34,12 @@ const App = () => {
               isFilterOpen={isFilterOpen}
               activeTag={activeTag}
               setActiveTag={setActiveTag}
+              photos={photos}
+              setPhotos={setPhotos}
             />
           }
         />
-        {/* <Route path="/pageDetails" element={<PageDetails />} */}
+        <Route path="/photo/:photoId" element={<PhotoDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>
