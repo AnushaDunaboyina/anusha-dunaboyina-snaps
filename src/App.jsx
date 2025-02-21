@@ -1,37 +1,26 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.scss";
 
-import Header from "../src/components/Header/Header";
+// import Header from "../src/components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home";
-import PhotoDetails from "./pages/PhotoDetails/PhotoDetails";
+import HomePage from "./pages/HomePage/HomePage";
+import PhotoDetailsPage from "./pages/PhotoDetailsPage/PhotoDetailsPage";
 
 const App = () => {
-
-  // useState for Filters button
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  
   const [photos, setPhotos] = useState([]);
-
-  const toggleFilter = () => {
-    if (isFilterOpen) {
-      setActiveTag(""); // Reset activeTag when closing the filters
-    }
-    setIsFilterOpen(!isFilterOpen);
-  };
-
-  //  useState for Tags button
   const [activeTag, setActiveTag] = useState("");
 
   return (
     <BrowserRouter>
-      <Header onToggleFilters={toggleFilter} isFilterOpen={isFilterOpen} />
+      
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              isFilterOpen={isFilterOpen}
+            <HomePage
+              // isFilterOpen={isFilterOpen}
               activeTag={activeTag}
               setActiveTag={setActiveTag}
               photos={photos}
@@ -39,7 +28,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/photo/:photoId" element={<PhotoDetails />} />
+        <Route path="/photo/:photoId" element={<PhotoDetailsPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -48,11 +37,3 @@ const App = () => {
 
 export default App;
 
-const Layout = ({ isFilterOpen, onToggleFilters }) => {
-  return (
-    <>
-      <Header isFilterOpen={isFilterOpen} onToggleFilters={onToggleFilters} />
-      <Outlet />
-    </>
-  );
-};

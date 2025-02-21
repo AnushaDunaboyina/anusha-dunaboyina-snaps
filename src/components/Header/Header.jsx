@@ -1,12 +1,10 @@
+
 import "./header.scss";
 import Button from "../Button/Button";
 import filterIcon from "../../assets/images/Filter.svg";
-import { Link, useResolvedPath } from "react-router-dom";
 
 function Header({ onToggleFilters, isFilterOpen }) {
-  const { pathname } = useResolvedPath();
-  const isHomePage = pathname === "/";
-
+  
   return (
     <header className="header">
       <h1 className="header__title">
@@ -15,7 +13,6 @@ function Header({ onToggleFilters, isFilterOpen }) {
         </a>
       </h1>
 
-      {isHomePage ? (
         <Button
           onClick={onToggleFilters}
           isActive={isFilterOpen}
@@ -38,11 +35,7 @@ function Header({ onToggleFilters, isFilterOpen }) {
             />
           </svg>
         </Button>
-      ) : (
-        <Link to="/" className="button--home">
-          Home
-        </Link>
-      )}
+ 
     </header>
   );
 }
