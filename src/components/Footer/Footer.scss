@@ -124,6 +124,7 @@
     padding-top: 1.5rem;
     display: flex;
     gap: 1rem;
+    
     @include font-body-mobile;
 
     @include tablet-desktop {
@@ -137,6 +138,7 @@
 
     .footer__link--bottom {
       color: $sea-green;
+      text-decoration: none;
 
       &:hover {
         color: $forest-green;

@@ -22,6 +22,8 @@
     flex: 1 1 18.75rem;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
 
     @include tablet-desktop {
       max-width: 22.5rem;
@@ -80,6 +82,7 @@
       }
 
       .photo-cards__tag {
+       
         border: none;
         background-color: transparent;
         background-color: $white;
