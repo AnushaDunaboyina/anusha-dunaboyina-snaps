@@ -11,7 +11,7 @@
 .header__back-home-link {
   text-decoration: none;
   color: $forest-green;
-  font-size: 20px;
+  font-size: 1.25rem;
 
   @include tablet-desktop {
     @include font-heading-tab-desktop;
@@ -120,8 +120,8 @@
           gap: 0.375rem;
 
           .photo-details__likes-icon {
-            width: 12px;
-            height: 12px;
+            width: 0.75rem;
+            height: 0.75rem;
           }
         }
 
@@ -142,16 +142,16 @@
 // Comments
 
 .comments {
-  padding: 16px 16px 40px 16px;
+  padding: 1rem 1rem 2.5rem 1rem;
 
   @include tablet-desktop {
-    padding: 24px;
+    padding: 1.5rem;
     width: 46.75rem;
     margin: auto;
   }
 
   &__title {
-    padding-bottom: 12px;
+    padding-bottom: 0.75rem;
     @include font-label-mobile;
 
     @include tablet-desktop {
@@ -160,11 +160,11 @@
   }
 
   .comments__comment {
-    border-top: 2px solid $sea-green;
-    padding: 16px 0;
+    border-top: 0.125rem solid $sea-green;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 0.875rem;
     @include font-label-mobile;
 
     @include tablet-desktop {
