@@ -9,6 +9,8 @@
   @include tablet-desktop {
     padding: 24px;
     gap: 24px;
+    width: 46.75rem;
+    margin: auto;
   }
 
   &__section {
@@ -21,7 +23,7 @@
     @include font-label-mobile;
 
     @include tablet-desktop {
-        @include font-label-tab-desktop;
+      @include font-label-tab-desktop;
     }
   }
 
@@ -38,15 +40,19 @@
     background-color: $white;
 
     @include tablet-desktop {
-        min-width: 280px;
-        min-height: 40px;
-        padding: 8px 16px;
-        border-radius: 8px;
+      min-width: 280px;
+      min-height: 40px;
+      padding: 8px 16px;
+      border-radius: 8px;
     }
 
     &:focus {
-        outline: none;
-        border-color: $forest-green;
+      outline: none;
+      border-color: $forest-green;
+    }
+
+    &.error {
+      border-color: $error-red;
     }
   }
 
@@ -60,19 +66,19 @@
     margin-left: auto;
     color: $white;
     background-color: $forest-green;
-    padding: 8px 16px;   
+    padding: 8px 16px;
     cursor: pointer;
     border-radius: 6px;
     @include font-label-mobile;
 
     @include tablet-desktop {
-        padding: 10px 20px;
-        border-radius: 8px;
-        @include font-label-tab-desktop;
+      padding: 10px 20px;
+      border-radius: 8px;
+      @include font-label-tab-desktop;
     }
 
     &:hover {
-        background-color: darken($forest-green, 10%);
+      background-color: darken($forest-green, 10%);
     }
   }
 }

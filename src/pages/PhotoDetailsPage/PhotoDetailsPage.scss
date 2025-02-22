@@ -138,3 +138,50 @@
     }
   }
 }
+
+
+// Comments
+
+.comments {
+  padding: 16px 16px 40px 16px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+
+
+  @include tablet-desktop{
+    padding: 24px;
+    width: 46.75rem;
+    margin: auto;
+  }
+
+  &__title {
+    padding-bottom: 12px;
+    @include font-label-mobile; 
+    
+    @include tablet-desktop {
+      @include font-label-tab-desktop;
+    }
+  }
+
+  .comments__comment {
+    border-top: 2px solid $sea-green;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    @include font-label-mobile;
+
+    @include tablet-desktop {
+      @include font-label-tab-desktop;
+    }
+
+    .comments__header {
+      display:flex;
+      justify-content: space-between;
+      color: $forest-green;
+    }
+  }
+}
+
+

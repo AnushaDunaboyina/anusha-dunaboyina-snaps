@@ -28,7 +28,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/photo/:photoId" element={<PhotoDetailsPage />} />
+        <Route path="/photo/:id" element={<PhotoDetailsPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

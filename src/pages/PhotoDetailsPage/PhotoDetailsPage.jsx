@@ -2,40 +2,74 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 import "./photoDetailsPage.scss";
 
 import Form from "../../components/Form/Form";
 
 function PhotoDetailsPage() {
-  const { photoId } = useParams();
-  console.log("Photo ID:", photoId);
+  const { id } = useParams();
 
   const [photoData, setPhotoData] = useState({});
+  const [comments, setComments] = useState([]);
 
+  // Fetch Photos Data
   useEffect(() => {
     const fetchPhotoData = async () => {
       const response = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${photoId}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
       );
       setPhotoData(response.data);
     };
 
     fetchPhotoData();
-  }, [photoId]);
+  }, [id]);
+
+  // Fetch Comments
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(
+          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+        );
+
+        console.log(response.data);
+        setComments(response.data);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+    fetchComments();
+  }, [id]);
+
+  // Handle form submission
+  const handleSubmit = async (name, comment) => {
+    const newComment = { name, comment };
+    try {
+      const response = await axios.post(
+        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`,
+        newComment
+      );
+
+      setComments((previousComments) => [response.data, ...previousComments]); // Add new coment to top of the comment list
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+  };
 
   // Add loading state to handle time before the data load
   if (!photoData) {
     return <>loading photos...</>;
   }
 
-  // convert timestamp to mm/dd/yyyy
+  if (!comments.length) {
+    return <>loading comments...</>;
+  }
 
+  // convert timestamp to mm/dd/yyyy
   const convertTimestampToDate = (timestamp) => {
     const date = new Date(timestamp);
-    const month = ("0" + (date.getMonth() + 1)).slice(-2);
-    const day = ("0" + date.getDate()).slice(-2);
-    const year = date.getFullYear();
-    return `${month}/${day}/${year}`;
+    return format(date, "MM/dd/yyyy");
   };
 
   return (
@@ -69,7 +103,6 @@ function PhotoDetailsPage() {
 
       <section className="photo-details__card">
         <div className="photo-details">
-          {/* <div className="photo-details"> */}
           <img
             src={photoData.photo}
             alt={photoData.photoDescription}
@@ -87,7 +120,6 @@ function PhotoDetailsPage() {
 
           <div className="photo-details__info">
             <div className="photo-details__info-left">
-              {/* <div className="photo-details__info-main"> */}
               <div className="photo-details__likes">
                 <svg
                   width="15"
@@ -119,12 +151,25 @@ function PhotoDetailsPage() {
             <div className="photo-details__timestamp">
               <p>{convertTimestampToDate(photoData.timestamp)}</p>
             </div>
-            {/* </div> */}
           </div>
-          {/* </div> */}
         </div>
       </section>
-      <Form />
+      <Form onSubmit={handleSubmit} />
+
+      <section className="comments">
+        <h5 className="comments__title">{comments.length} Comments</h5>
+        {comments.map((comment) => (
+          <div key={comment.id} className="comments__comment">
+            <div className="comments__header">
+              <p className="comments__name">{comment.name}</p>
+              <p className="comments__timestamp">
+                {convertTimestampToDate(comment.timestamp)}
+              </p>
+            </div>
+            <p className="comments__text">{comment.comment}</p>
+          </div>
+        ))}
+      </section>
     </>
   );
 }
