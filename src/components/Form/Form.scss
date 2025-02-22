@@ -2,10 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .form {
-  padding: 16px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
   @include tablet-desktop {
     padding: 24px;
     gap: 24px;

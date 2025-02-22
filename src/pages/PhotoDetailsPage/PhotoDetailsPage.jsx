@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import "./photoDetailsPage.scss";
-
+import axios from "axios";
 import Form from "../../components/Form/Form";
+import "./photoDetailsPage.scss";
 
 function PhotoDetailsPage() {
   const { id } = useParams();
@@ -16,10 +15,14 @@ function PhotoDetailsPage() {
   // Fetch Photos Data
   useEffect(() => {
     const fetchPhotoData = async () => {
-      const response = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
-      );
-      setPhotoData(response.data);
+      try {
+        const response = await axios.get(
+          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+        );
+        setPhotoData(response.data);
+      } catch (error) {
+        console.error("Error fetching photo data:", error);
+      }
     };
 
     fetchPhotoData();
@@ -33,7 +36,6 @@ function PhotoDetailsPage() {
           `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
         );
 
-        console.log(response.data);
         setComments(response.data);
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -58,12 +60,8 @@ function PhotoDetailsPage() {
   };
 
   // Add loading state to handle time before the data load
-  if (!photoData) {
-    return <>loading photos...</>;
-  }
-
-  if (!comments.length) {
-    return <>loading comments...</>;
+  if (!photoData || !comments.length) {
+    return <div>loading...</div>;
   }
 
   // convert timestamp to mm/dd/yyyy
@@ -112,7 +110,11 @@ function PhotoDetailsPage() {
           <div className="photo-details__tags">
             {photoData.tags &&
               photoData.tags.map((tag) => (
-                <button key={tag} className="photo-details__tag-button">
+                <button
+                  key={tag}
+                  className="photo-details__tag-button"
+                  aria-label={`Tag: ${tag}`}
+                >
                   {tag}
                 </button>
               ))}
