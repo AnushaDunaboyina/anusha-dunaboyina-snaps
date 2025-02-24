@@ -77,8 +77,9 @@
       @include font-label-tab-desktop;
     }
 
-    // &:hover {
-    //   background-color: darken($forest-green, 10%);
-    // }
+    &:hover {
+      background-color: $forest-green;
+      transform: scale(1.05);
+    }
   }
 }

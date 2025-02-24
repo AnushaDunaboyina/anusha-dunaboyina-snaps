@@ -11,6 +11,8 @@ function PhotoDetailsPage() {
 
   const [photoData, setPhotoData] = useState({});
   const [comments, setComments] = useState([]);
+  const [isPhotoLoading, setIsPhotoLoading] = useState(true);
+  const [isCommentsLoading, setIsCommentsLoading] = useState(true);
 
   // Fetch Photos Data
   useEffect(() => {
@@ -22,6 +24,8 @@ function PhotoDetailsPage() {
         setPhotoData(response.data);
       } catch (error) {
         console.error("Error fetching photo data:", error);
+      } finally {
+        setIsPhotoLoading(false);
       }
     };
 
@@ -39,6 +43,8 @@ function PhotoDetailsPage() {
         setComments(response.data);
       } catch (error) {
         console.error("Error fetching comments:", error);
+      } finally {
+        setIsCommentsLoading(false);
       }
     };
     fetchComments();
@@ -60,9 +66,10 @@ function PhotoDetailsPage() {
   };
 
   // Add loading state to handle time before the data load
-  if (!photoData || !comments.length) {
+  if (isPhotoLoading || isCommentsLoading) {
     return <div>loading...</div>;
   }
+
 
   // convert timestamp to mm/dd/yyyy
   const convertTimestampToDate = (timestamp) => {
@@ -105,6 +112,7 @@ function PhotoDetailsPage() {
             src={photoData.photo}
             alt={photoData.photoDescription}
             className="photo-details__image"
+            loading="lazy"
           />
 
           <div className="photo-details__tags">
