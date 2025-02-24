@@ -1,62 +1,34 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.scss";
 
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import FilterDrawer from "./components/FilterDrawer/FilterDrawer";
-import OurMission from "./components/OurMission/OurMission";
-import PhotoCards from "./components/PhotoCards/PhotoCards";
+import HomePage from "./pages/HomePage/HomePage";
+import PhotoDetailsPage from "./pages/PhotoDetailsPage/PhotoDetailsPage";
 
-import tagsArray from "../src/data/tags.json";
-import photos from "../src/data/photos.json";
-
-function App() {
-  // useState for Filters button
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const toggleFilter = () => {
-    if (isFilterOpen) {
-      setActiveTag(""); // Reset activeTag when closing the filters
-    }
-    setIsFilterOpen(!isFilterOpen);
-  };
-
-  //  useState for Tags button
+const App = () => {
+  const [photos, setPhotos] = useState([]);
   const [activeTag, setActiveTag] = useState("");
-  const toggleTag = (tag) => {
-    setActiveTag((previousTag) => (previousTag === tag ? "" : tag));
-  };
-
-  const filteredPhotos = activeTag
-    ? photos.filter((photo) => photo.tags.includes(activeTag))
-    : photos;
 
   return (
-    <>
-      <Header
-        handleToggleFilters={toggleFilter}
-        checkIsFilterOpen={isFilterOpen}
-      />
-
-      <div className={`main-content ${isFilterOpen ? "filter-open" : ""}`}>
-        {isFilterOpen && (
-          <div className="main-right">
-            <FilterDrawer
-              tags={tagsArray}
-              handleToggleTag={toggleTag}
-              checkActiveTag={activeTag}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              activeTag={activeTag}
+              setActiveTag={setActiveTag}
+              photos={photos}
+              setPhotos={setPhotos}
             />
-          </div>
-        )}
-        <div className="main-left">
-          <OurMission />
-
-          <PhotoCards photosData={filteredPhotos} />
-        </div>
-      </div>
-
+          }
+        />
+        <Route path="/photo/:id" element={<PhotoDetailsPage />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
-}
+};
 
 export default App;

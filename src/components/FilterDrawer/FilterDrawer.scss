@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.filters__container {
+.filters {
   padding: 1.5rem 1rem;
   background-color: $sage;
 
@@ -29,7 +29,7 @@
     }
   }
 
-  .filters__tags-section {
+  .filters__tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
