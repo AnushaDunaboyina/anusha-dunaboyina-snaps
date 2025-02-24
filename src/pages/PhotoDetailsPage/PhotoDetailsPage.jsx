@@ -40,7 +40,10 @@ function PhotoDetailsPage() {
           `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
         );
 
-        setComments(response.data);
+        const sortedComments = response.data.sort(
+          (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+        );
+        setComments(sortedComments);
       } catch (error) {
         console.error("Error fetching comments:", error);
       } finally {
@@ -69,7 +72,6 @@ function PhotoDetailsPage() {
   if (isPhotoLoading || isCommentsLoading) {
     return <div>loading...</div>;
   }
-
 
   // convert timestamp to mm/dd/yyyy
   const convertTimestampToDate = (timestamp) => {
