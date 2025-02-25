@@ -6,11 +6,11 @@ import FilterDrawer from "../../components/FilterDrawer/FilterDrawer";
 import OurMission from "../../components/OurMission/OurMission";
 import PhotoCards from "../../components/PhotoCards/PhotoCards";
 
-const API_KEY = "71b01ef3-c48c-463a-9ddb-4f2e5372cb75";
-const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
+// const API_KEY = "71b01ef3-c48c-463a-9ddb-4f2e5372cb75";
+// const API_URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage({ activeTag, setActiveTag, photos, setPhotos }) {
-
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [tags, setTags] = useState([]);
 
@@ -20,20 +20,31 @@ function HomePage({ activeTag, setActiveTag, photos, setPhotos }) {
     }
     setIsFilterOpen(!isFilterOpen);
   };
- 
+
   // Fetch tags and Photos from the API
   useEffect(() => {
     const fetchTags = async () => {
-      const response = await axios.get(`${API_URL}/tags?api_key=${API_KEY}`);
-      setTags(response.data);
+      try {
+        // const response = await axios.get(`${API_URL}/tags?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/tags`);
+        setTags(response.data);
+      } catch (error) {
+        console.log("Error fetching tags:", error);
+      }
     };
     fetchTags();
   }, []);
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const response = await axios.get(`${API_URL}/photos?api_key=${API_KEY}`);
-      setPhotos(response.data);
+      try {
+        // const response = await axios.get(`${API_URL}/photos?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/photos`);
+        // console.log("photos data fetched:", response.data);
+        setPhotos(response.data);
+      } catch (error) {
+        console.log("Error fetching photos data:", error);
+      }
     };
     fetchPhotos();
   }, []);
@@ -48,7 +59,7 @@ function HomePage({ activeTag, setActiveTag, photos, setPhotos }) {
 
   return (
     <>
-    <Header onToggleFilters={toggleFilter} isFilterOpen={isFilterOpen} />
+      <Header onToggleFilters={toggleFilter} isFilterOpen={isFilterOpen} />
       <div className={`main-content ${isFilterOpen ? "filter-open" : ""}`}>
         {isFilterOpen && (
           <div className="main-right">

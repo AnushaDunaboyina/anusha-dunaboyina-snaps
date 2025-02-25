@@ -1,3 +1,5 @@
+const API_URL = "http://localhost:5050";
+
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -19,9 +21,12 @@ function PhotoDetailsPage() {
     const fetchPhotoData = async () => {
       try {
         const response = await axios.get(
-          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+          // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+          `${API_URL}/photos/${id}`
         );
         setPhotoData(response.data);
+        console.log("PHOTO API Response:", response.data);
+        console.log("PHOTO timestamp:", response.data.timestamp);
       } catch (error) {
         console.error("Error fetching photo data:", error);
       } finally {
