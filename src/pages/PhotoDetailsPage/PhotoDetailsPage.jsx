@@ -25,8 +25,6 @@ function PhotoDetailsPage() {
           `${API_URL}/photos/${id}`
         );
         setPhotoData(response.data);
-        console.log("PHOTO API Response:", response.data);
-        console.log("PHOTO timestamp:", response.data.timestamp);
       } catch (error) {
         console.error("Error fetching photo data:", error);
       } finally {
@@ -50,7 +48,6 @@ function PhotoDetailsPage() {
           (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
         );
         setComments(sortedComments);
-        console.log("Comments: ", sortedComments);
       } catch (error) {
         console.error("Error fetching comments:", error);
       } finally {
