@@ -42,13 +42,15 @@ function PhotoDetailsPage() {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+          // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
+          `${API_URL}/photos/${id}/comments`
         );
 
         const sortedComments = response.data.sort(
           (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
         );
         setComments(sortedComments);
+        console.log("Comments: ", sortedComments);
       } catch (error) {
         console.error("Error fetching comments:", error);
       } finally {
@@ -63,7 +65,8 @@ function PhotoDetailsPage() {
     const newComment = { name, comment };
     try {
       const response = await axios.post(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`,
+        // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`,
+        `${API_URL}/photos/${id}/comments`,
         newComment
       );
 
