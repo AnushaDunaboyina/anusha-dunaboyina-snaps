@@ -20,10 +20,7 @@ function PhotoDetailsPage() {
   useEffect(() => {
     const fetchPhotoData = async () => {
       try {
-        const response = await axios.get(
-          // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
-          `${API_URL}/photos/${id}`
-        );
+        const response = await axios.get(`${API_URL}/photos/${id}`);
         setPhotoData(response.data);
       } catch (error) {
         console.error("Error fetching photo data:", error);
@@ -39,10 +36,7 @@ function PhotoDetailsPage() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(
-          // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`
-          `${API_URL}/photos/${id}/comments`
-        );
+        const response = await axios.get(`${API_URL}/photos/${id}/comments`);
 
         const sortedComments = response.data.sort(
           (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
@@ -62,7 +56,6 @@ function PhotoDetailsPage() {
     const newComment = { name, comment };
     try {
       const response = await axios.post(
-        // `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=71b01ef3-c48c-463a-9ddb-4f2e5372cb75`,
         `${API_URL}/photos/${id}/comments`,
         newComment
       );
