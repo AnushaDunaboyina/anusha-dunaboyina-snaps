@@ -82,10 +82,27 @@
       }
 
       .photo-cards__tag {
-       
         border: none;
         background-color: transparent;
         background-color: $white;
+        border: 0.063rem solid $sea-green;
+        padding: 0.375rem 0.5rem;
+        border-radius: 0.375rem;
+        color: $black;
+        cursor: pointer;
+        @include font-small-body-mobile;
+
+        @include tablet-desktop {
+          @include font-small-body-tab-desktop;
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.75rem;
+        }
+      }
+
+      .photo-cards__tag--active {
+        border: none;
+        background-color: transparent;
+        background-color: $sea-green;
         border: 0.063rem solid $sea-green;
         padding: 0.375rem 0.5rem;
         border-radius: 0.375rem;

@@ -72,7 +72,7 @@ function HomePage({ activeTag, setActiveTag, photos, setPhotos }) {
         )}
         <div className="main-left">
           <OurMission />
-          <PhotoCards photosData={filteredPhotos} activeTag={activeTag}/>
+          <PhotoCards photosData={filteredPhotos} activeTag={activeTag} />
         </div>
       </div>
     </>

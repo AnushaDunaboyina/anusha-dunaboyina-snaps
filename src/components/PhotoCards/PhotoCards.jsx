@@ -6,7 +6,11 @@ function PhotoCards({ photosData, activeTag }) {
     <section>
       <div className="photo-cards">
         {photosData.map((photo) => (
-          <Link to={`/photo/${photo.id}`} key={photo.id} className="photo-cards__card" >
+          <Link
+            to={`/photo/${photo.id}`}
+            key={photo.id}
+            className="photo-cards__card"
+          >
             {/* Upper part - Image & Photographer */}
             <div className="photo-cards__image-container">
               <img
@@ -21,7 +25,12 @@ function PhotoCards({ photosData, activeTag }) {
             {/* Bottom part - Tags */}
             <div className="photo-cards__tags">
               {photo.tags.map((tag) => (
-                <button key={tag} className="photo-cards__tag">
+                <button
+                  key={tag}
+                  className={`photo-cards__tag ${
+                    tag === activeTag ? "photo-cards__tag--active" : ""
+                  }`}
+                >
                   {tag}
                 </button>
               ))}
