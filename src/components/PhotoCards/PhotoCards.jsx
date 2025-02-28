@@ -1,7 +1,7 @@
 import "./PhotoCards.scss";
 import { Link } from "react-router-dom";
 
-function PhotoCards({ photosData }) {
+function PhotoCards({ photosData, activeTag }) {
   return (
     <section>
       <div className="photo-cards">
