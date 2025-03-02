@@ -40,25 +40,33 @@ const Form = ({ onSubmit }) => {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <div className="form__section">
-          <label className="form__label form__label--name">Name</label>
+          <label htmlFor="name" className="form__label form__label--name">
+            Name
+          </label>
           <input
+            id="name"
             className={`form__input ${errors.name ? "error" : ""}`}
             type="text"
             name="name"
             placeholder="Enter your name"
             value={name}
             onChange={handleChangeName}
+            autoComplete="name"
           />
         </div>
         <div className="form__section">
-          <label className="form__label form__label--comment">Comment</label>
+          <label htmlFor="comment" className="form__label form__label--comment">
+            Comment
+          </label>
           <textarea
+            id="comment"
             className={`form__textarea ${errors.comment ? "error" : ""}`}
             type="text"
             name="comment"
             placeholder="Add a new comment"
             value={comment}
             onChange={handleChangeComment}
+            autoComplete="off"
           />
         </div>
         <button className="form__button" type="submit">
